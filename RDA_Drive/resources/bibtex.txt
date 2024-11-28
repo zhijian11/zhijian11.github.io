@@ -1,0 +1,8 @@
+@inproceedings{huang2025making,
+  title={Making large language models better planners with reasoning-decision alignment},
+  author={Huang, Zhijian and Tang, Tao and Chen, Shaoxiang and Lin, Sihao and Jie, Zequn and Ma, Lin and Wang, Guangrun and Liang, Xiaodan},
+  booktitle={European Conference on Computer Vision},
+  pages={73--90},
+  year={2025},
+  organization={Springer}
+}
