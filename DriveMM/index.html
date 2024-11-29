@@ -1,0 +1,654 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJFX2BFB9X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WJFX2BFB9X');
+</script>
+	<title>DriveMM: All-in-One Large Multimodal Model for Autonomous Driving</title>
+	<meta property="og:image" content="./resources/overview.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="DriveMM: All-in-One Large Multimodal Model for Autonomous Driving" />
+	<meta property="og:description" content="Z. Huang, C. Fen, F. Yan, B. Xiao, Z. Jie, Y. Zhong, X. Liang, L. Ma" />
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:36px">DriveMM: All-in-One Large Multimodal Model for Autonomous Driving</span>
+		<br>
+		<br>
+
+		<table align=center width=1000px>
+			<table align=center width=1000px>
+				<tr>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:22px"><a href="https://zhijian11.github.io/">
+							Zhijian Huang</a><sup>1*</sup></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:22px"><a href="https://fcjian.github.io/">
+							Chengjian Feng</a><sup>1*</sup></span>
+						</center>
+					</td>					
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:22px"><a href="https://scholar.google.com.hk/citations?user=gO4divAAAAAJ&hl=zh-CN&oi=sra">
+							Fen Yan</a><sup>2</sup></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:22px"><a href="xbh23@mails.tsinghua.edu.cn">
+							Baihui Xiao</a><sup>3</sup></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:22px"><a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN&oi=ao">
+							Zequn Jie</a><sup>2</sup></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<table align=center width=600px>
+				<tr>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:22px"><a href="https://y-zhong.info/">
+							Yujie Zhong</a><sup>2</sup></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:22px"><a href="https://lemondan.github.io/">
+								Xiaodan Liang</a><sup>4</sup></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:22px"><a href="http://forestlinma.com/">
+							Lin Ma</a><sup>1,5<img class="round" style="width:20px" src="./resources/email_flag.png"/></sup></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			</tbody></table><br>
+		  	<table align="center" width="800px">
+				<tbody>
+					<tr>
+						<td align="center" width="700px">
+				  			<center>
+								<span style="font-size:22px"><sup>1</sup>Shenzhen Campus of Sun Yat-sen University</span>
+							</center>
+						</td>
+						<td align="center" width="100px">
+				  			<center>
+								<span style="font-size:22px"><sup>2</sup>Meituan Inc.</span>
+							</center>
+						</td>
+					</tr>		
+				</tbody>
+			</table>
+
+			<!-- <br>
+			<table align=center width=500px>
+				<tr>
+					<td align=center width=500px>
+						<center>
+							<span style="font-size:22px">
+								<span style="font-size:22px"><em>ECCV</em> 2024<font color="red"><strong>(Oral)</strong></font>
+								</span>
+							</span>
+						</center>
+					</td>
+				</tr>
+			</table> -->
+			
+			<table align=center width=250px>
+				<br>
+				<tr>
+					<span style="font-size:22px">
+						<a href="">ArXiv</a> |
+						<a href="">Code</a> |
+						<a href="">Bibtex</a><br>
+					</span>
+				</tr>
+			</table>
+		</table>
+	</center>
+	<br>
+	<center>
+		<table align=center width=500px>
+			<tr>
+				<td width=500px>
+					<center>
+						<img src="./resources/overview.png" alt="clean-usnob" width="1050">
+					</center>
+				</td>
+			</tr>
+		</table>
+		<!--
+		<table align=center width=850px>
+			<tr>
+				<td>
+					This was a template originally made for <a href="http://richzhang.github.io/colorization/">Colorful Image Colorization</a>. The code can be found in this <a href="https://github.com/richzhang/webpage-template">repository</a>.
+				</td>
+			</tr>
+		</table>
+	-->
+	</center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				Large Multimodal Models (LMMs) have demonstrated exceptional comprehension and interpretation capabilities in Autonomous Driving (AD) by incorporating large language models. 
+				Despite the advancements, current data-driven AD approaches tend to concentrate on a single dataset and specific tasks, neglecting their overall capabilities and ability to generalize. 
+				To bridge these gaps, we propose DriveMM, a general large multimodal model designed to process diverse data inputs, such as images and multi-view videos, while performing a broad spectrum of AD tasks, including perception, prediction, and planning. 
+				Initially, the model undergoes curriculum pre-training to process varied visual signals and perform basic visual comprehension and perception tasks. 
+				Subsequently, we augment and standardize various AD-related datasets to fine-tune the model, resulting in an all-in-one LMM for autonomous driving. 
+				To assess the general capabilities and generalization ability, we conduct evaluations on six public benchmarks and undertake zero-shot transfer on an unseen dataset, where DriveMM achieves state-of-the-art performance across all tasks. 
+				We hope DriveMM as a promising solution for future end-toend autonomous driving applications in the real world.
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<hr>
+	<center><h1>Methodology</h1></center>
+
+	<table align=center width=850px>
+		<tr>
+			<td>
+				We adapt the architecture form of LLaVA with a different model instantiation, processing various visual input signals. 
+				We design a perspective-aware prompt to accept multi-perspective inputs in AD scenario. 
+				Equipped with diverse AD multimodal data, DriveMM possesses an all-in-one capability to accomplish multiple tasks in autonomous driving.
+			</td>
+		</tr>
+	</table>
+	<table align=center width=750px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<td><img class="round" style="width:850px" src="./resources/method.png"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+	
+	<hr>
+	<!-- <center><h1>Synthetic Dataset</h1></center>
+
+	<table align=center width=850px>
+		<tr>
+			<td>
+				Visualization of the synthetic dataset generated by our InstaGen. The bounding-boxes with green denote the objects from <font color=#00FF00><b>base</b></font> categories, while the ones with red denote the objects from <font color=#FF0000><b>novel</b></font>  categories.
+			</td>
+		</tr>
+	</table>
+	<table align=center width=750px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<td><img class="round" style="width:850px" src="./resources/qualitative_result.png"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<hr> -->
+	<center><h1>Results</h1></center>
+
+	<table align=center width=850px>
+		<tr>
+			<td>
+				<b>R1</b>: General performance on benchmarks. We compare with state-of-the-art specialist models, commercial models and open-source large multimodal models across diverse autonomous driving valuation benchmarks spanning multiple modalities. 
+				<sup>†</sup>Specialist models correspond to the performance of six different models. <sup>∗</sup> indicates max((Accuracy+MAP+BLEU-MAE)/4, 0).
+		</tr>
+	</table>
+	<table align=center width=500px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<td><img class="round" style="width:500px" src="./resources/general_result.png"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<br>
+	<table align=center width=850px>
+		<tr>
+			<td>
+				<b>R2</b>: Generalization ability in BDD-X. Specialists are fine-tuned on a single dataset, whereas DriveMM is fine-tuned on all datasets.
+		</tr>
+	</table>
+	<table align=center width=500px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<td><img class="round" style="width:500px" src="./resources/generalization_result.png"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<br>
+	<!-- <table align=center width=850px>
+		<tr>
+			<td>
+				<b>R3</b>: Results on generalizing COCO-base to Object365 and LVIS. <b>InstaGen</b> achieves superior performance in generalization from COCO-base to Object365 and LVIS, when compared to CLIP-based methods. <b>InstaGen</b> possesses the ability to generate images featuring objects of any category without the need for additional datasets, thereby enhancing its versatility across various scenarios.
+			</td>
+		</tr>
+	</table>
+	<table align=center width=550px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<td><img class="round" style="width:550px" src="./resources/coco-to-ol.png"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br> -->
+
+	<table align=center width=750px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<!--td><img class="round" style="width:1000px" src="./resources/qualitative_result_caption.png" width="900"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+	<!--
+	<hr>
+	<center><h1>Video</h1></center>
+	<p align="center">
+		<iframe width="660" height="395" src="https://www.youtube.com/embed/ZTn0xRJvndU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+	</p>
+	
+	
+	<hr>
+	
+	<center><h1>Results</h1></center>
+
+	<table align=center width=750px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<td><img class="round" style="width:750px" src="./resources/graph.png"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+	<table align=center width=1000px>
+		<tr>
+			<td>
+	<strong>Results comparison on DAVIS2016.</strong>
+	Note that, supervised approaches may use models pretrained on ImageNet,
+	but here we only count number of images with pixel-wise annotations.
+			</td>
+		</tr>
+	</table>
+
+	<br><br>
+	<table align=center width=1000px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<td><img class="round" style="width:1000px" src="./resources/main.png"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+	<table align=center width=1000px>
+		<tr>
+			<td>
+	<strong>Full comparison on unsupervised video segmentation.</strong>
+	We consider three popular datasets, DAVIS2016, SegTrack-v2 (STv2), and FBMS59.
+	Models above the horizontal dividing line are trained without using any manual annotation,
+	while models below are pre-trained on image or video segmentation datasets, e.g. DAVIS, YouTube-VOS,
+	thus requiring ground truth annotations at training time.
+	Numbers in parentheses denote the additional usage of significant post-processing, 
+	e.g. multi-step flow, multi-crop, temporal smoothing, CRFs.
+			</td>
+		</tr>
+	</table>
+
+	<br><br>
+	<table align=center width=1000px>
+		<center>
+			<tr>
+				<td>
+				<center>
+					<td><img class="round" style="width:1000px" src="./resources/moca.png"/></td>
+				</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+	<table align=center width=1000px>
+		<tr>
+			<td>
+	<strong>Comparison results on MoCA dataset.</strong>
+	We report the successful localization rate for various thresholds.
+	Both CIS and Ours were pre-trained on DAVIS and finetuned on MoCA in a self-supervised manner.
+	Note that, our method achieves comparable Jaccard to MATNet (2nd best model on DAVIS), 
+	without using RGB inputs and without any manual annotation for training.
+			</td>
+		</tr>
+	</table>
+
+
+	
+	<br><br>
+	<hr>
+	
+	<center><h1>Visualizations</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/flatfish_1.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/parachute.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/spider_tailed_horned_viper_3.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/soapbox.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/pygmy_seahorse_2.gif"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/paragliding-launch.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/frog.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/drift.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/snow_leopard_2.gif"/></td>
+				</center>
+			</td>
+			<td align=center width=200px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/car-roundabout.gif"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	-->
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<!--
+				<td>
+					Coming soon...
+				</td>
+			-->
+			</tr>
+		</center>
+	</table>
+	<!--
+	<table align=center width=800px>
+		<br>
+		<tr><center>
+			<span style="font-size:28px">&nbsp;<a href='https://github.com/charigyang/motiongrouping'>[GitHub]</a>
+			</center>
+		</span>
+	</table>
+	<br>
+-->
+
+	<hr>
+	<table align=center width=800px>
+		<center><h1>Publication</h1></center>
+		<tr>
+			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
+			<td><span style="font-size:14pt">Z. Huang, C. Feng, F. Yan, B. Xiao, Z. Jie, Y. Zhong, X. Liang, L. Ma<br>
+				<b>DriveMM: All-in-One Large Multimodal Model for Autonomous Driving</b><br>
+				<!-- <em>ECCV</em> 2024<font color="red"><strong>(Oral)</strong></font> -->
+				<br>
+				<a href="">ArXiv</a> |
+				<a href="">Code</a> |
+				<a href="">Bibtex</a><br>
+				<br>
+				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
+				<span style="font-size:4pt"><a href=""><br></a>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<!--
+	<table align=center width=600px>
+		<tr>
+			<td><span style="font-size:14pt"><center>
+				<a href="./resources/bibtex.txt">[Bibtex]</a>
+			</center></td>
+		</tr>
+	</table>-->
+
+	<!--
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					We thank Yimeng Long for assistance on data annotation, Joao Carreira for an interesting discussion,
+					Guanqi Zhan, Ragav Sachdeva, K R Prajwal, and Aleksandar Shtedritski for proofreading.
+					This research is supported by the UK EPSRC CDT in AIMS (EP/S024050/1), a Royal Society Research Professorship, and the UK EPSRC Programme Grant Visual AI (EP/T028572/1).<br>
+					<br>
+
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+	-->
+
+	<table style="width:95%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+	  <tr>
+		<td style="padding:0px">
+		  <br>
+		  <p style="text-align:right;font-size:small;">
+			Webpage template modified from <a href="https://github.com/richzhang/webpage-template/">here</a>.
+		  </p>
+		</td>
+	  </tr>
+	</tbody></table>
+
+<br>
+</body>
+</html>
+
