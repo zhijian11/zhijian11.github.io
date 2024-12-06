@@ -79,13 +79,13 @@
 			text-align: left;
 		}
 
-		.chat-history img {
+		.chat-history figure {
 			display: none;
 			max-width: 100%;
 			max-height: 100%;
 		}
 
-		.chat-history img.active {
+		.chat-history figure.active {
 			display: block;
 		}
 
@@ -94,6 +94,7 @@
       height: 1px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
     }
+    
 	</style>
   
 <body>
@@ -151,7 +152,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/zhijian11/DriveMM"
                     class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -167,12 +168,13 @@
   </div>
 </section>
 
-<section class="section" style="background-color: #f1f1f1;">
-  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 80%;">
+<section class="section" style="margin-top: -100px;">
+  <!-- <div class="container pt-5 mt-0 shadow p-5 mb-0 bg-white rounded" style="width: 80%;"> -->
+  <div class="container" style="width: 80%;">
     <!-- conflicts. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
-        <h2 class="title is-3">General Capabilities & Generalization Ability</h2>
+        <!-- <h2 class="title is-3">General Capabilities & Generalization Ability</h2> -->
         <div class="teaser">
           <img src="./static/images/overview.png"  width="1200" height="1200">
         </div>
@@ -188,8 +190,8 @@
   </div>
 </section>
 
-<section class="section">
-    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 80%;">
+<section class="section" style="background-color: #f1f1f1;">
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 50%;">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
@@ -222,8 +224,8 @@
 </section>
 
 
-<section class="section" style="background-color: #f1f1f1;">
-  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 80%;">
+<section class="section">
+  <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 50%;">
     <!-- conflicts. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
@@ -247,11 +249,11 @@
   </div>
 </section>
 
-<section class="section">
-    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 56%;">
+<section class="section" style="background-color: #f1f1f1;">
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded" style="width: 50%;">
         <div class="columns is-centered has-text-centered">
           <div class="column is-five-fifths">
-            <h2 class="title is-3">State-of-the-art General Performance & Generalization Ability</h2>
+            <h2 class="title is-3">General Performance & Generalization Ability</h2>
         <div class="teaser">
           <img src="./static/images/general_result.png">
         </div>
@@ -281,7 +283,7 @@
 
 
 
-<section class="section" style="background-color: #f1f1f1;">
+<section class="section">
   <div class="columns is-centered has-text-centered">
     <div class="column is-six-fifths">
       <h2 class="title is-3">Visualizations</h2>
@@ -303,14 +305,70 @@
     </div>
   
     <div style="display: flex; justify-content: center; align-items: center;">
-      <div class="card mb-4" style="width: 75%; display: flex; align-items: center;">
+      <div class="card mb-4" style="width: 70%; display: flex; align-items: center;">
         <div class="card-body" id="selected-question" style="display: flex; height: 100vh;">
           <div class="chat-history">
             <article class="media">
-							<img src="./static/visualization/codalm1.png" class="active">
+              <figure class="active">
+                <img src="./static/visualization/codalm1.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/codalm2.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/codalm3.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/maplm1.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/drivelm1.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/drivelm2.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/omnidrive1.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/omnidrive2.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/nuinstruct1.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/nuinstruct2.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/nuinstruct3.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/nuinstruct4.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/bddx1.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+              <figure>
+                <img src="./static/visualization/bddx2.png">
+                <figcaption><sup> Key information is highlighted in <span style="color: green;">green</span>, while errors are marked in <span style="color: red;">red</span>.</sup></figcaption>
+              </figure>
+
+              <!-- <img src="./static/visualization/codalm1.png" class="active">
               <img src="./static/visualization/codalm2.png">
-							<img src="./static/visualization/codalm2.png">
-							<img src="./static/visualization/codalm3.png">
+              <img src="./static/visualization/codalm3.png">
 							<img src="./static/visualization/maplm1.png">
 							<img src="./static/visualization/drivelm1.png">
 							<img src="./static/visualization/drivelm2.png">
@@ -323,7 +381,7 @@
 							<img src="./static/visualization/nuinstruct3.png">
 							<img src="./static/visualization/nuinstruct4.png">
 							<img src="./static/visualization/bddx1.png">
-							<img src="./static/visualization/bddx2.png">
+							<img src="./static/visualization/bddx2.png"> -->
 						</article>
             <!-- Add your chat messages here -->
           </div>
@@ -333,21 +391,20 @@
   </div>
 </section>
 
-<section class="section" id="BibTeX" style="background-color: #f1f1f1;">
+<section class="section" id="BibTeX" >
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <!-- <pre><code>@article{chen2024emova,
-  title={Emova: Empowering language models to see, hear and speak with vivid emotions},
-  author={Chen, Kai and Gou, Yunhao and Huang, Runhui and Liu, Zhili and Tan, Daxin and Xu, Jing and Wang, Chunwei and Zhu, Yi and Zeng, Yihan and Yang, Kuo and others},
-  journal={arXiv preprint arXiv:2409.18042},
-  year={2024}
-}</code></pre> -->
+    <pre><code>@article{huang2024drivemm,
+  title={DriveMM: All-in-One Large Multimodal Model for Autonomous Driving},
+  author={Huang, Zhijian and Fen, Chengjian and Yan, Feng and Xiao, Baihui and Jie, Zequn and Zhong, Yujie and Liang, Xiaodan and Ma, Lin},
+  <!-- journal={arXiv preprint arXiv:2409.18042}, -->year={2024}
+}</code></pre>
   </div>
 </section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const images = document.querySelectorAll('.chat-history img');
+    const images = document.querySelectorAll('.chat-history figure');
     let currentIndex = 0;
 
     document.getElementById('prev-question').addEventListener('click', function () {
@@ -365,14 +422,14 @@
 </script>
 
 
-<footer class="footer">
+<footer class="footer" style="background-color: #f1f1f1;">
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
          href="">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/zhijian11/DriveMM" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
