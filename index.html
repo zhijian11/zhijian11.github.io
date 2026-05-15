@@ -1,272 +1,917 @@
 <!DOCTYPE HTML>
-<html lang="en"><head>
-  
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J8CBRENW5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6J8CBRENW5');
-</script>
-  
+<html lang="en">
+<head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
   <title>Zhijian Huang</title>
-  
   <meta name="author" content="Zhijian Huang">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <!--link rel="icon" type="image/png" href="images/seal_icon.png"-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --accent: #c0392b;
+      --accent-light: #f2e8e7;
+      --text: #1a1a1a;
+      --text-muted: #6b6560;
+      --border: #e8e4de;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 64px 32px 80px;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: none;
+      animation: fadeUp 0.55s ease both;
+    }
+
+    .name {
+      font-family: "DM Serif Display", "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", "Times New Roman", serif;
+      font-size: clamp(30px, 4.8vw, 40px);
+      font-weight: 400;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .name-cn {
+      font-size: 1em;
+      font-family: inherit;
+      font-weight: inherit;
+      color: inherit;
+      letter-spacing: inherit;
+      white-space: nowrap;
+    }
+
+    .name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .affiliation {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .bio {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bio em {
+      color: var(--text);
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    .bio strong {
+      color: var(--text);
+      font-style: normal;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", var(--sans), sans-serif;
+      font-weight: 500;
+    }
+
+    .bio a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.15s;
+    }
+
+    .bio a:hover { border-color: var(--text); }
+
+    .bio a.email-link {
+      color: var(--accent);
+      border-color: var(--accent-light);
+    }
+
+    .bio a.email-link:hover { border-color: var(--accent); }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      background: var(--surface);
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      object-fit: cover;
+      display: block;
+      background: var(--surface);
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 52px;
+      animation: fadeUp 0.55s ease both;
+    }
+
+    .section:nth-child(2) { animation-delay: 0.1s; }
+    .section:nth-child(3) { animation-delay: 0.2s; }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      margin-bottom: 16px;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1.5px;
+      background: var(--border);
+    }
+
+    .research-intro {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .research-intro em {
+      color: var(--text);
+      font-style: italic;
+      font-family: var(--serif);
+      font-size: 15.5px;
+    }
+
+    /* ── Paper Cards ── */
+    .paper-card {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 24px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 14px;
+      transition: all 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: transparent;
+      border-radius: 12px 0 0 12px;
+      transition: background 0.2s ease;
+    }
+
+    .paper-card:hover {
+      border-color: #d4cfc8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+    }
+
+    .paper-card:hover::before { background: var(--accent); }
+
+    .paper-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      display: block;
+    }
+
+    .paper-thumb-adaptive {
+      aspect-ratio: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .paper-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .paper-title {
+      font-family: var(--serif);
+      font-size: 15.5px;
+      line-height: 1.4;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .paper-title:hover { color: var(--accent); }
+
+    .paper-authors {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .paper-authors strong { color: var(--text); font-weight: 700; }
+
+    .paper-authors a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .paper-authors a:hover { border-color: var(--text-muted); }
+
+    .paper-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .paper-footer {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 10px;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-venue { background: var(--text); color: #fff; }
+    .badge-oral  { background: var(--accent); color: #fff; }
+    .badge-report { background: #a7a29b; color: #fff; }
+
+    .paper-links { display: flex; gap: 10px; align-items: center; }
+
+    .paper-link {
+      font-size: 11.5px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid var(--accent-light);
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .paper-link:hover { border-color: var(--accent); }
+
+    .sep { color: var(--border); font-size: 12px; }
+
+    /* ── Experience ── */
+    /* ── Experience ── */
+    .exp-list { display: flex; flex-direction: column; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: 4px 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-role {
+      font-weight: 500;
+      font-size: 13.5px;
+      color: var(--text);
+    }
+
+    .exp-org {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 300;
+      grid-column: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exp-mentor {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 300;
+      grid-column: 1;
+    }
+
+    .exp-mentor a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .exp-mentor a:hover {
+      color: var(--text);
+    }
+
+    .org-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.85;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    .exp-date {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 300;
+      white-space: nowrap;
+      text-align: right;
+      grid-column: 2;
+      grid-row: 1;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Academic Services ── */
+    .service-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .service-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 300;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-item:last-child { border-bottom: none; }
+
+    .service-role {
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    .service-dot {
+      color: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1.5px solid var(--border);
+      text-align: right;
+      font-size: 11px;
+      color: #c0bbb4;
+      letter-spacing: 0.03em;
+    }
+
+    footer a { color: inherit; text-decoration: underline; }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .wrapper { padding: 40px 20px 60px; }
+      .header  { grid-template-columns: 1fr; gap: 20px; }
+      .avatar  { display: none; }
+      .paper-card { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>Zhijian Huang</name>
-              </p>
-              <p style="text-align:center">I am currently a M.Sc student at Sun Yat-sen University.
-              </p>
+  <div class="wrapper">
 
-              <p style="text-align:center">
-                <a href="https://zhijian11.github.io/">Home</a> &nbsp/&nbsp
-                <a href="mailto:zhijianh11@gmail.com">Email</a> &nbsp/&nbsp
-                <!--<a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Google Scholar</a> &nbsp/&nbsp-->
-                <a href="https://github.com/zhijian11/">Github</a> 
-                <!-- &nbsp/&nbsp -->
-                <!-- <a href="https://scholar.google.com/citations?hl=zh-CN&user=jc3YlxEAAAAJ">Google Scholar</a> -->
-              </p>
-            </td>
-            <td style="padding:8%;width:40%;max-width:40%">
-              <!-- <img style="width:80%;max-width:100%" alt="profile photo" src="resources/pp.jpeg" class="hoverZoomLink"> -->
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Research</heading>
-              <p>
-                My research interests lie in the areas of <em>computer vision</em> and <em>deep learning</em>. I am particularly interested in
-                <!-- <em>object detection</em>, including <em>2D</em> object detection, <em>3D</em> object detection (both vision-based and LiDAR-based) and <em>open-vocabulary</em> object detection. -->
-                <em>autonomous driving</em> and <em>large language model</em>.
-              </p>
-            </td>s
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <h1 class="name">Zhijian Huang <span class="name-cn">(黄志坚)</span></h1>
+        <div class="bio">
+          <p>
+            I am currently a researcher at <strong>Xiaomi</strong><img src="https://www.google.com/s2/favicons?domain=mi.com&sz=64" class="org-icon" alt="Xiaomi icon" loading="lazy" decoding="async" referrerpolicy="no-referrer">. I received my M.Sc. from the
+            <a href="https://www.sysu-hcp.net/home/">HCP-Lab</a>
+            at Sun Yat-sen University, advised by Prof.
+            <a href="https://ise.sysu.edu.cn/teacher/LiangXiaodan">Xiaodan Liang</a>,
+            and obtained my B.Eng. degree from Sun Yat-sen University as well.
+          </p>
+          <p>
+            My research interests center on <strong>Large Multimodal Models</strong> and their downstream applications,
+            including <strong>VLA</strong> and <strong>World Models</strong>,
+            with a focus on <strong>Autonomous Driving</strong> and <strong>Embodied Intelligence</strong>.
+            I am always open to discussions and collaborations — feel free to reach out via
+            <a href="mailto:zhijianh11@gmail.com" class="email-link">email</a>
+            or <a href="#" class="email-link" onclick="copyWeChatId(event)">WeChat</a>.
+          </p>
+        </div>
+        <nav class="links">
+          <a href="https://zhijian11.github.io/" style="display:inline-flex;align-items:center;gap:5px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Home
+          </a>
+          <a href="mailto:zhijianh11@gmail.com" style="display:inline-flex;align-items:center;gap:5px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+            Email
+          </a>
+          <a href="https://github.com/zhijian11/" style="display:inline-flex;align-items:center;gap:5px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <a href="https://scholar.google.com/citations?user=WAe19JEAAAAJ&hl=zh-CN" style="display:inline-flex;align-items:center;gap:5px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm-7 9.18V16c0 2.76 3.13 5 7 5s7-2.24 7-5v-3.82l-7 3.82-7-3.82z"/></svg>
+            Scholar
+          </a>
+          <a href="#" style="display:inline-flex;align-items:center;gap:5px;" title="Click to copy WeChat ID" onclick="copyWeChatId(event)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 4C4.36 4 1 6.69 1 10c0 1.89 1.1 3.57 2.82 4.67L3 18l3.33-1.66c.38.06.77.1 1.17.1 4.14 0 7.5-2.69 7.5-6S12.64 4 8.5 4zm-3 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm5 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM23 15.5c0-2.49-2.57-4.5-5.75-4.5S11.5 13.01 11.5 15.5 14.07 20 17.25 20c.31 0 .62-.02.92-.08L21 21l-.78-2.33c1.7-.77 2.78-1.88 2.78-3.17zM15.5 15a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zm3.5 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z"/></svg>
+            WeChat: zhijian-zoe
+          </a>
+        </nav>
+      </div>
+      <img src="resources/photo.JPG" alt="Zhijian Huang portrait" class="avatar">
+    </header>
 
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="resources/RoboTron_Drive.png" alt="clean-usnob" width="180" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="RoboTron-Drive/index.html">
-                <papertitle>RoboTron-Drive: All-in-One Large Multimodal Model for Autonomous Driving</papertitle>
-              </a>
-              <br>
-              <strong>Zhijian Huang</strong>, 
-              <a href="https://fcjian.github.io/">Chengjian Feng</a>, 
-              <a href="https://scholar.google.com.hk/citations?user=gO4divAAAAAJ&hl=zh-CN&oi=sra">Fen Yan</a>, 
-              <a href="xbh23@mails.tsinghua.edu.cn">Baihui Xiao</a>, 
-              <a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN&oi=ao">Zequn Jie</a>, 
-              <a href="https://y-zhong.info/">Yujie Zhong</a>,
-              <a href="https://lemondan.github.io/">Xiaodan Liang</a>, 
-              <a href="http://forestlinma.com/">Lin Ma</a>
-              <!-- <br>
-              <em>ECCV</em>, 2024
-              <font color="red"><strong>(Oral)</strong></font> -->
-              <br>
-              <a href="RoboTron-Drive/index.html">project page</a> /
-              <a href="">arXiv</a>
-              <p></p>We propose a novel all-in-one large multimodal model, RoboTron-Drive, robustly equipped with the general capabilities and the generalization ability.</p>
-            </td>
-          </tr>
+    <!-- Publications -->
+    <section class="section">
+      <h2 class="section-title">Publications</h2>
 
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="resources/RDA_Drive.png" alt="clean-usnob" width="180" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="RDA_Drive/index.html">
-                <papertitle>Making Large Language Models Better Planners with Reasoning-Decision Alignment</papertitle>
-              </a>
-              <br>
-              <strong>Zhijian Huang</strong>, 
-              <a href="https://scholar.google.co.jp/citations?hl=zh-CN&user=1ltylFwAAAAJ&view_op=list_works&sortby=pubdate">Tao Tang</a>, 
-              <a href="https://scholar.google.co.jp/citations?user=WL5mbfEAAAAJ&hl=zh-CN&oi=ao">Shaoxiang Chen</a>, 
-              <a href="https://github.com/sihaoevery">Sihao Lin</a>, 
-              <a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN&oi=ao">Zequn Jie</a>, 
-              <a href="http://forestlinma.com/">Lin Ma</a>,
-              <a href="https://wanggrun.github.io/">Guangrun Wang</a>, 
-              <a href="https://lemondan.github.io/">Xiaodan Liang</a>
-              <br>
-              <em>ECCV</em>, 2024
-              <font color="red"><strong>(Oral)</strong></font>
-              <br>
-              <a href="RDA_Drive/index.html">project page</a> /
-              <a href="https://arxiv.org/abs/2408.13890">arXiv</a>
-              <p></p>
-              <p>We introduce a multimodal large language decision-making model RDA-Driver with the reasoning-decision alignment. </p>
-            </td>
-          </tr>
+     <!-- OneVL -->
+     <div class="paper-card">
+      <img src="resources/OneVL.png" alt="OneVL" class="paper-thumb paper-thumb-adaptive">
+      <div class="paper-body">
+        <a href="https://xiaomi-embodied-intelligence.github.io/OneVL" class="paper-title">
+          OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation
+        </a>
+        <p class="paper-authors">
+          <a >Jinghui Lu</a>,
+          <a >Jiayi Guan</a>,
+          <strong>Zhijian Huang</strong>,
+          <a >Jinlong Li</a>,
+          <a >Guang Li</a>,
+          <a >Lingdong Kong</a>,
+          <a >Yingyan Li</a>,
+          <a >et al.</a>
+        </p>
+        <p class="paper-desc">
+          We present OneVL (One-step latent reasoning and planning with Vision-Language explanations), a unified VLA and World Model framework that routes reasoning through compact latent tokens supervised by dual auxiliary decoders. 
+        </p>
+        <div class="paper-footer">
+          <span class="badge badge-report">Technical Report</span>
+          <span class="sep">|</span>
+          <a href="https://xiaomi-embodied-intelligence.github.io/OneVL" class="paper-link">Project Page</a>
+          <div class="paper-links">
+            <span class="sep">|</span>
+            <a href="https://arxiv.org/abs/2604.18486" class="paper-link">arXiv</a>
+            <span class="sep">|</span>
+            <a href="https://github.com/xiaomi-research/onevl" class="paper-link">code</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-          <!-- <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="resources/instagen.png" alt="clean-usnob" width="180" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="InstaGen/index.html">
-                <papertitle>InstaGen: Enhancing Object Detection by Training on Synthetic Dataset</papertitle>
-              </a>
-              <br>
-              <strong>Chenjian Feng</strong>, <a href="https://y-zhong.info/">Yujie Zhong</a>, <a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN&oi=ao">
-							Zequn Jie</a>, <a href="https://weidixie.github.io/">
-							Weidi Xie</a>, <a href="http://forestlinma.com/">
-							Lin Ma</a>
-              <br>
-              <em>CVPR</em>, 2024
-              <br>
-              <a href="InstaGen/index.html">project page</a> /
-              <a href="https://arxiv.org/abs/2402.05937">arXiv</a>
-              <p></p>
-              <p>We introduce a novel paradigm to enhance the ability of object detector by training on synthetic dataset generated from diffusion models.</p>
-            </td>
-          </tr>
+      <!-- Mimo-Embodied -->
+      <div class="paper-card">
+        <img src="resources/Mimo-Embodied.png" alt="Mimo-Embodied" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="https://arxiv.org/abs/2511.16518" class="paper-title">
+            MiMo-Embodied: X-Embodied Foundation Model Technical Report
+          </a>
+          <p class="paper-authors">
+            <a >Xiaoshuai Hao</a>,
+            <a >Lei Zhou</a>,
+            <strong>Zhijian Huang</strong>,
+            <a >Zhiwen Hou</a>,
+            <a >Yingbo Tang</a>,
+            <a >Lingfeng Zhang</a>,
+            <a >Guang Li</a>,
+            <a >Zheng Lu</a>,
+            <a >Shuhuai Ren</a>,
+            <a >et al.</a>
+          </p>
+          <p class="paper-desc">
+            We open-source MiMo-Embodied, the first cross-embodied foundation model to successfully integrate and achieve state-of-the-art performance in both Autonomous Driving and Embodied AI. 
+          </p>
+          <div class="paper-footer">
+            <span class="badge badge-report">Technical Report</span>
+            <div class="paper-links">
+              <span class="sep">|</span>
+              <a href="https://arxiv.org/abs/2511.16518" class="paper-link">arXiv</a>
+              <span class="sep">|</span>
+              <a href="https://github.com/XiaomiMiMo/MiMo-Embodied" class="paper-link">code</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <tr>
-          <td style="padding:20px;width:25%;vertical-align:top">
-            <img src="resources/aedet.png" alt="clean-usnob" width="180">
-          </td>
-          <td width="75%" valign="middle">
-            <a href="aedet/index.html">
-              <papertitle>AeDet: Azimuth-invariant Multi-view 3D Object Detection</papertitle>
-            </a>
-            <br>
-              <strong>Chenjian Feng</strong>,
-              <a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN&oi=ao">Zequn Jie</a>,
-              <a href="https://y-zhong.info/">Yujie Zhong</a>,
-              <a href="https://scholar.google.com/citations?user=jn21pUsAAAAJ&hl=zh-CN&oi=ao">Xiangxiang Chu</a>,
-              <a href="http://forestlinma.com/">Lin Ma</a>
-            <br>
-            <em>CVPR</em>, 2023
-            <br>
-            <a href="aedet/index.html">project page</a> /
-            <a href="https://arxiv.org/abs/2211.12501">arXiv</a>
-            <p></p>
-            <p>We propose an Azimuth-equivariant Detector (AeDet) that is able to perform azimuth-invariant multi-view 3D object detection.</p>
-            <br>
-          </td>
-        </tr>
+      <!-- VGGDrive -->
+      <div class="paper-card">
+        <img src="resources/VGGDrive.png" alt="VGGDrive" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="https://wj-cv.github.io/VGGDrive" class="paper-title">
+            VGGDrive: Empowering Vision-Language Models with Cross-View Geometric Grounding for Autonomous Driving
+          </a>
+          <p class="paper-authors">
+            <a >Jie Wang</a>,
+            <a >Guang Li</a>,
+            <strong>Zhijian Huang</strong>,
+            <a >Chenxu Dang</a>,
+            <a >Hangjun Ye</a>,
+            <a >Yahong Han</a>,
+            <a >Long Chen</a>
+          </p>
+          <p class="paper-desc">
+            We propose a novel architecture, VGGDrive, which empowers Vision-language models with cross-view Geometric Grounding for autonomous Driving.</p>
+          <div class="paper-footer">
+            <span class="badge badge-venue">CVPR 2026</span>
+            <span class="sep">|</span>
+            <div class="paper-links">
+              <a href="https://wj-cv.github.io/VGGDrive" class="paper-link">Project Page</a>
+              <span class="sep">|</span>
+              <a href="https://arxiv.org/abs/2602.20794" class="paper-link">arXiv</a>
+              <span class="sep">|</span>
+              <a href="https://github.com/WJ-CV/VGGDrive" class="paper-link">code</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="resources/promptdet.png" alt="clean-usnob" width="180">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="promptdet/index.html">
-                <papertitle>PromptDet: Towards Open-vocabulary Detection using Uncurated Images</papertitle>
-              </a>
-              <br>
-              <strong>Chenjian Feng</strong>, <a href="https://y-zhong.info/">Yujie Zhong</a>, <a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN&oi=ao">
-							Zequn Jie</a>, <a href="https://scholar.google.com/citations?user=jn21pUsAAAAJ&hl=zh-CN&oi=ao">
-							Xiangxiang Chu</a>, <a href="https://scholar.google.com/citations?user=qq6hueYAAAAJ&hl=zh-CN&oi=ao">
-							Haibing Ren</a>, <a href="https://scholar.google.com/citations?user=s5b7lU4AAAAJ&hl=zh-CN&oi=ao">
-							Xiaolin Wei</a>, <a href="https://weidixie.github.io/">
-							Weidi Xie</a>, <a href="http://forestlinma.com/">
-							Lin Ma</a>
-              <br>
-              <em>ECCV</em>, 2022
-              <br>
-              <a href="promptdet/index.html">project page</a> /
-              <a href="https://arxiv.org/abs/2203.16513">arXiv</a>
-              <p></p>
-              <p>We propose an open-vocabulary object detector PromptDet, which is able to detect novel categories without any manual annotations.</p>
-            </td>
-          </tr>
+      <!-- X-SAM -->
+      <div class="paper-card">
+        <img src="resources/X-SAM.png" alt="X-SAM" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="https://wanghao9610.github.io/X-SAM" class="paper-title">
+            X-SAM: From Segment Anything to Any Segmentation
+          </a>
+          <p class="paper-authors">
+            <a >Hao Wang</a>,
+            <a >Limeng Qiao</a>,
+            <a >Zequn Jie</a>,
+            <strong>Zhijian Huang</strong>,
+            <a >Chengjian Feng</a>,
+            <a >Qingfang Zheng</a>,
+            <a >Lin Ma</a>,
+            <a >Xiangyuan Lan</a>,
+            <a >Xiaodan Liang</a>
+          </p>
+          <p class="paper-desc">
+            We present X-SAM, a streamlined Multimodal Large Language Model framework that extends the segmentation paradigm from Segment Anything to Any Segmentation.</p>
+          <div class="paper-footer">
+            <span class="badge badge-venue">AAAI 2026</span>
+            <span class="sep">|</span>
+            <div class="paper-links">
+              <a href="https://wanghao9610.github.io/X-SAM" class="paper-link">Project Page</a>
+              <span class="sep">|</span>
+              <a href="https://arxiv.org/abs/2508.04655" class="paper-link">arXiv</a>
+              <span class="sep">|</span>
+              <a href="https://github.com/wanghao9610/X-SAM" class="paper-link">code</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="resources/tood.png" alt="clean-usnob" width="180">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="tood/index.html">
-                <papertitle>TOOD: Task-aligned One-stage Object Detection</papertitle>
-              </a>
-              <br>
-              <strong>Chenjian Feng</strong>, <a href="https://y-zhong.info/">Yujie Zhong</a>, <a href="">Yu Gao</a>, <a href="">Matthew R. Scott</a>, <a href="http://whuang.org/">Weilin Huang</a>
-              <br>
-              <em>ICCV</em>, 2021
-              <font color="red"><strong>(Oral)</strong></font>
-              <br>
-              <a href="tood/index.html">project page</a> /
-              <a href="https://arxiv.org/abs/2108.07755">arXiv</a>
-              <p></p>
-              <p>We propose a Task-aligned One-stage Object Detection (TOOD) that explicitly aligns the classification and localization tasks in a learning-based manner.</p>
-            </td>
-          </tr>
+      <!-- RoboTron-Drive -->
+      <div class="paper-card">
+        <img src="resources/RoboTron_Drive.png" alt="RoboTron-Drive" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="RoboTron-Drive/index.html" class="paper-title">
+            RoboTron-Drive: All-in-One Large Multimodal Model for Autonomous Driving
+          </a>
+          <p class="paper-authors">
+            <strong>Zhijian Huang</strong>,
+            <a href="https://fcjian.github.io/">Chengjian Feng</a>,
+            <a href="https://scholar.google.com.hk/citations?user=gO4divAAAAAJ&hl=zh-CN&oi=sra">Fen Yan</a>,
+            Baihui Xiao,
+            <a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN&oi=ao">Zequn Jie</a>,
+            <a href="https://y-zhong.info/">Yujie Zhong</a>,
+            <a href="https://lemondan.github.io/">Xiaodan Liang</a>,
+            <a href="http://forestlinma.com/">Lin Ma</a>
+          </p>
+          <p class="paper-desc">
+            A novel all-in-one large multimodal model robustly equipped with general capabilities and strong generalization for autonomous driving tasks.
+          </p>
+          <div class="paper-footer">
+            <span class="badge badge-venue">ICCV 2025</span>
+            <span class="sep">|</span>
+            <div class="paper-links">
+              <a href="RoboTron-Drive/index.html" class="paper-link">Project Page</a>
+              <span class="sep">|</span>
+              <a href="https://arxiv.org/abs/2412.07689" class="paper-link">arXiv</a>
+              <span class="sep">|</span>
+              <a href="https://github.com/zhijian11/RoboTron-Drive" class="paper-link">code</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="resources/loce.png" alt="clean-usnob" width="180">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="loce/index.html">
-                <papertitle>Exploring Classification Equilibrium in Long-Tailed Object Detection</papertitle>
-              </a>
-              <br>
-              <strong>Chenjian Feng</strong>, <a href="https://y-zhong.info/">Yujie Zhong</a>, <a href="http://whuang.org/">Weilin Huang</a>
-              <br>
-              <em>ICCV</em>, 2021
-              <br>
-              <a href="loce/index.html">project page</a> /
-              <a href="https://arxiv.org/abs/2108.07507">arXiv</a>
-              <p></p>
-              <p>We balance the classification of the long-tailed detector via an Equilibrium Loss (EBL) and a Memory-augmented Feature Sampling (MFS) method.</p>
-            </td>
-          </tr>
+      <!-- RoboTron-Sim -->
+      <div class="paper-card">
+        <img src="resources/RoboTron_Sim.png" alt="RoboTron-Sim" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="https://stars79689.github.io/RoboTron-Sim" class="paper-title">
+            RoboTron-Sim: Improving Real-World Driving via Simulated Hard-Case
+          </a>
+          <p class="paper-authors">
+            <a >Baihui Xiao</a>,
+            <a >Chengjian Feng</a>,
+            <strong>Zhijian Huang</strong>,
+            <a >Feng Yan</a>,
+            <a >Yujie Zhong</a>,
+            <a >Lin Ma</a>
+          </p>
+          <p class="paper-desc">
+            We propose RoboTron-Sim that improves real-world driving in critical situations by utilizing simulated hard cases.
+          </p>
+          <div class="paper-footer">
+            <span class="badge badge-venue">ICCV 2025</span>
+            <span class="sep">|</span>
+            <div class="paper-links">
+              <a href="https://stars79689.github.io/RoboTron-Sim" class="paper-link">Project Page</a>
+              <span class="sep">|</span>
+              <a href="https://arxiv.org/abs/2508.04642" class="paper-link">arXiv</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="resources/sbada_gan.png" alt="clean-usnob" width="180" height="100">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231219304941">
-                <papertitle>Domain adaptation with SBADA-GAN and Mean Teacher</papertitle>
-              </a>
-              <br>
-              <strong>Chenjian Feng</strong>, <a href="">Zhaoshui He</a>, <a href="">Jiawei Wang</a>, <a href="">Qinzhuang Lin</a>, <a href="">Zhouping Zhu</a>, <a href="">Jun Lv</a>, <a href="">Shengli Xie</a>
-              <br>
-              <em>Neurocomputing</em>, 2020
-              <br>
-              <p></p>
-              <p>We propose a powerful model for unsupervised domain adaptation by introducing  Mean Teacher as a target classifier of SBADA-GAN.</p>
-            </td>
-          </tr> -->
+      <!-- RDA-Drive -->
+      <div class="paper-card">
+        <img src="resources/RDA_Drive.png" alt="RDA-Driver" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="RDA_Drive/index.html" class="paper-title">
+            Making Large Language Models Better Planners with Reasoning-Decision Alignment
+          </a>
+          <p class="paper-authors">
+            <strong>Zhijian Huang</strong>,
+            <a href="https://scholar.google.co.jp/citations?hl=zh-CN&user=1ltylFwAAAAJ">Tao Tang</a>,
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=WL5mbfEAAAAJ&view_op=list_works&sortby=pubdate">Shaoxiang Chen</a>,
+            <a href="https://github.com/sihaoevery">Sihao Lin</a>,
+            <a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN">Zequn Jie</a>,
+            <a href="http://forestlinma.com/">Lin Ma</a>,
+            <a href="https://wanggrun.github.io/">Guangrun Wang</a>,
+            <a href="https://lemondan.github.io/">Xiaodan Liang</a>
+          </p>
+          <p class="paper-desc">
+            We introduce RDA-Driver, a multimodal LLM decision-making model with reasoning-decision alignment for stronger autonomous driving planning.
+          </p>
+          <div class="paper-footer">
+            <span class="badge badge-venue">ECCV 2024</span>
+            <span class="sep">|</span>
+            <span class="badge badge-oral">Oral</span>
+            <span class="sep">|</span>
+            <div class="paper-links" style="margin-left:4px;">
+              <a href="RDA_Drive/index.html" class="paper-link">Project Page</a>
+              <span class="sep">|</span>
+              <a href="https://arxiv.org/abs/2408.13890" class="paper-link">arXiv</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        </tbody></table>
+      <!-- Fuller -->
+      <div class="paper-card">
+        <img src="resources/Fuller.png" alt="Fuller" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="https://arxiv.org/abs/2307.16617" class="paper-title">
+            FULLER: Unified Multi-modality Multi-task 3D Perception via Multi-level Gradient Calibration
+          </a>
+          <p class="paper-authors">
+            <strong>Zhijian Huang</strong>,
+            <a >Sihao Lin</a>,
+            <a >Guiyu Liu</a>,
+            <a >Mukun Luo</a>,
+            <a >Chaoqiang Ye</a>,
+            <a >Hang Xu</a>,
+            <a >Xiaojun Chang</a>,
+            <a href="https://lemondan.github.io/">Xiaodan Liang</a>,
+          </p>
+          <p class="paper-desc">
+            We introduce FULLER, a novel yet simple multi-level gradient calibration learning framework across tasks and modalities during optimization.
+          </p>
+          <div class="paper-footer">
+            <span class="badge badge-venue">ICCV 2023</span>
+            <div class="paper-links" style="margin-left:4px;">
+              <span class="sep">|</span>
+              <a href=https://arxiv.org/abs/2307.16617" class="paper-link">arXiv</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:right;font-size:small;">
-                Template gratefully stolen from <a href="https://github.com/jonbarron/website/">here</a>.
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
+      <!-- Arch-graph -->
+      <div class="paper-card">
+        <img src="resources/arch-graph.png" alt="Arch-graph" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="https://arxiv.org/abs/2204.05941" class="paper-title">
+            Arch-Graph: Acyclic Architecture Relation Predictor for Task-Transferable Neural Architecture Search
+          </a>
+          <p class="paper-authors">
+            <a >Minbin Huang</a>
+            <strong>Zhijian Huang</strong>,
+            <a >Changlin Li</a>,
+            <a >Xin Chen</a>,
+            <a >Hang Xu</a>,
+            <a >Zhenguo Li</a>,
+            <a href="https://lemondan.github.io/">Xiaodan Liang</a>,
+          </p>
+          <p class="paper-desc">
+            We introduce Arch-Graph, a transferable NAS method that predicts task-specific optimal architectures with respect to given task embeddings.
+          </p>
+          <div class="paper-footer">
+            <span class="badge badge-venue">CVPR 2022</span>
+            <div class="paper-links" style="margin-left:4px;">
+              <span class="sep">|</span>
+              <a href=https://arxiv.org/abs/2204.05941" class="paper-link">arXiv</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DSBench -->
+      <div class="paper-card">
+        <img src="resources/DSBench.png" alt="DSBench" class="paper-thumb paper-thumb-adaptive">
+        <div class="paper-body">
+          <a href="https://arxiv.org/abs/2511.14592" class="paper-title">
+            Is Your VLM for Autonomous Driving Safety-Ready? A Comprehensive Benchmark for Evaluating External and In-Cabin Risks
+          </a>
+          <p class="paper-authors">
+            <a >Xianhui Meng</a>,
+            <a >Yuchen Zhang</a>,
+            <strong>Zhijian Huang</strong>,
+            <a >Zheng Lu</a>,
+            <a >Ziling Ji</a>,
+            <a >Yaoyao Yin</a>,
+            <a >Hongyuan Zhang</a>,
+            <a >Guangfeng Jiang</a>,
+            <a >Yandan Lin</a>,
+            <a >Long Chen</a>,
+            <a >Hangjun Ye</a>,
+            <a >Li Zhang</a>,
+            <a >Jun Liu</a>,
+            <a >Xiaoshuai Hao</a>,
+            <a href="https://lemondan.github.io/">Xiaodan Liang</a>,
+          </p>
+          <p class="paper-desc">
+            We introduce DSBench, the first comprehensive Driving Safety Benchmark designed to assess a VLM's awareness of various safety risks in a unified manner.        
+          </p>
+          <div class="paper-footer">
+            <div class="paper-links" style="margin-left:4px;">
+              <a href=https://arxiv.org/abs/2511.14592" class="paper-link">arXiv</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+      <h2 class="section-title">Experience</h2>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-role">Researcher</div>
+          <div class="exp-org">
+            <img src="https://www.google.com/s2/favicons?domain=mi.com&sz=64" class="org-icon" alt="Xiaomi icon" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            Xiaomi
+          </div>
+          <div class="exp-mentor">Mentor: <a href="https://long.ooo">Long Chen</a></div>
+          <div class="exp-date">2025.07 – Present</div>
+        </div>
+
+
+        <div class="exp-item">
+          <div class="exp-role">Research Intern</div>
+          <div class="exp-org">
+            <img src="https://www.google.com/s2/favicons?domain=meituan.com&sz=64" class="org-icon" alt="Meituan icon" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            Meituan
+          </div>
+          <div class="exp-mentor">Mentor: <a href="https://fcjian.github.io/">Chengjian Feng</a>,
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=WL5mbfEAAAAJ&view_op=list_works&sortby=pubdate">Shaoxiang Chen</a>,
+            <a href="https://scholar.google.com/citations?user=4sKGNB0AAAAJ&hl=zh-CN&oi=ao">Zequn Jie</a>,
+            <a href="http://forestlinma.com/">Lin Ma</a></div>
+          <div class="exp-date">2023.04 – 2025.07</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">Research Intern</div>
+          <div class="exp-org">
+            <img src="https://www.google.com/s2/favicons?domain=huawei.com&sz=64" class="org-icon" alt="Huawei icon" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            Huawei Noah's Ark Lab
+          </div>
+          <div class="exp-mentor">Mentor: <a href="https://hangxu.github.io/">Hang Xu</a></div>
+          <div class="exp-date">2022.03 – 2023.01</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Academic Services -->
+    <section class="section">
+      <h2 class="section-title">Academic Services</h2>
+      <div class="service-list">
+
+        <div class="service-item">
+          <span class="service-role">Conference Reviewer</span>
+          <span class="service-dot">·</span>
+          <span>CVPR, ECCV, ICCV</span>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      Template inspired by <a href="https://github.com/jonbarron/website/">Jon Barron's website</a>.
+    </footer>
+
+  </div>
+  <script>
+    function copyWeChatId(event) {
+      event.preventDefault();
+      const wechatId = "zhijian-zoe";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(wechatId).then(function () {
+          alert("WeChat ID copied: " + wechatId);
+        }).catch(function () {
+          alert("Failed to copy. Please copy manually: " + wechatId);
+        });
+      } else {
+        alert("Please copy manually: " + wechatId);
+      }
+    }
+  </script>
 </body>
-
 </html>
